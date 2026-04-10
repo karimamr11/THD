@@ -13,18 +13,6 @@ const services = [
     description: 'Architectural design that pushes boundaries. Structures that stand as statements of innovation and precision.',
     features: ['Conceptual Design', 'Technical Drawings', 'Building Permits', 'Site Supervision'],
   },
-  {
-    number: '03',
-    title: 'Project Management',
-    description: "End-to-end coordination of your build. We manage timelines, budgets, and contractors — so you don't have to.",
-    features: ['Budget Control', 'Timeline Management', 'Vendor Coordination', 'Quality Assurance'],
-  },
-  {
-    number: '04',
-    title: 'Custom Furniture',
-    description: 'Bespoke furniture tailored to your space. Every piece is designed, prototyped, and crafted with precision.',
-    features: ['Custom Pieces', 'Material Sourcing', 'Prototyping', 'Installation'],
-  },
 ]
 
 export default function Services() {
@@ -32,7 +20,7 @@ export default function Services() {
     <section
       id="services"
       style={{
-        background: '#0A0A09',
+        background: '#1C1C1A',
         padding: '120px 0 140px',
         position: 'relative',
         overflow: 'hidden',
@@ -48,6 +36,18 @@ export default function Services() {
           height: '600px',
           borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(226,255,0,0.04) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '-150px',
+          left: '-100px',
+          width: '400px',
+          height: '400px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(226,255,0,0.03) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -100,7 +100,11 @@ export default function Services() {
         </motion.div>
 
         {/* Services List */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))',
+          gap: '32px',
+        }}>
           {services.map((service, index) => (
             <motion.div
               key={service.number}
@@ -109,104 +113,100 @@ export default function Services() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                borderTop: '1px solid rgba(255,255,255,0.08)',
-                padding: '48px 0',
-                display: 'grid',
-                gridTemplateColumns: '1fr',
-                gap: '24px',
+                border: '1px solid rgba(255,255,255,0.06)',
+                padding: '48px 40px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '16px',
                 cursor: 'pointer',
-                transition: 'background 0.3s ease',
+                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                borderRadius: '24px',
+                background: 'rgba(255,255,255,0.015)',
               }}
               className="services-row"
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(226,255,0,0.03)'
+                e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
+                e.currentTarget.style.borderColor = 'rgba(226,255,0,0.25)'
+                e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.2)'
+                e.currentTarget.style.transform = 'translateY(-6px)'
                 const num = e.currentTarget.querySelector('.service-num')
                 if (num) num.style.color = 'var(--color-brand-yellow)'
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent'
+                e.currentTarget.style.background = 'rgba(255,255,255,0.015)'
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'
+                e.currentTarget.style.boxShadow = 'none'
+                e.currentTarget.style.transform = 'translateY(0)'
                 const num = e.currentTarget.querySelector('.service-num')
                 if (num) num.style.color = '#3A3A35'
               }}
             >
-              <div
+              {/* Number */}
+              <span
+                className="service-num"
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'auto 1fr',
-                  gap: '32px',
-                  alignItems: 'start',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '56px',
+                  fontWeight: 800,
+                  color: '#3A3A35',
+                  lineHeight: 1,
+                  transition: 'color 0.4s ease',
+                  marginBottom: '16px',
                 }}
               >
-                {/* Number */}
-                <span
-                  className="service-num"
+                {service.number}
+              </span>
+
+              {/* Content */}
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <h3
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: '48px',
-                    fontWeight: 800,
-                    color: '#3A3A35',
-                    lineHeight: 1,
-                    transition: 'color 0.3s ease',
-                    minWidth: '80px',
+                    fontSize: 'clamp(28px, 3.5vw, 40px)',
+                    fontWeight: 700,
+                    color: '#FFFFFF',
+                    margin: '0 0 16px 0',
+                    letterSpacing: '-0.02em',
                   }}
                 >
-                  {service.number}
-                </span>
+                  {service.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    lineHeight: 1.7,
+                    color: '#9A9A97',
+                    margin: '0 0 32px 0',
+                  }}
+                >
+                  {service.description}
+                </p>
 
-                {/* Content */}
-                <div>
-                  <h3
-                    style={{
-                      fontFamily: 'var(--font-display)',
-                      fontSize: 'clamp(24px, 3vw, 36px)',
-                      fontWeight: 700,
-                      color: '#FFFFFF',
-                      margin: '0 0 12px 0',
-                      letterSpacing: '-0.02em',
-                    }}
-                  >
-                    {service.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: 'var(--font-body)',
-                      fontSize: '16px',
-                      lineHeight: 1.7,
-                      color: '#9A9A97',
-                      margin: '0 0 24px 0',
-                      maxWidth: '600px',
-                    }}
-                  >
-                    {service.description}
-                  </p>
-
-                  {/* Feature tags */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                    {service.features.map((feature) => (
-                      <span
-                        key={feature}
-                        style={{
-                          fontFamily: 'var(--font-body)',
-                          fontSize: '12px',
-                          fontWeight: 500,
-                          color: '#6B6B60',
-                          background: 'rgba(255,255,255,0.05)',
-                          border: '1px solid rgba(255,255,255,0.06)',
-                          borderRadius: '999px',
-                          padding: '6px 14px',
-                          letterSpacing: '0.03em',
-                        }}
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
+                {/* Feature tags */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
+                  {service.features.map((feature) => (
+                    <span
+                      key={feature}
+                      style={{
+                        fontFamily: 'var(--font-body)',
+                        fontSize: '13px',
+                        fontWeight: 500,
+                        color: '#E0E0D8',
+                        background: 'rgba(255,255,255,0.05)',
+                        border: '1px solid rgba(255,255,255,0.08)',
+                        borderRadius: '999px',
+                        padding: '8px 16px',
+                        letterSpacing: '0.03em',
+                      }}
+                    >
+                      {feature}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.div>
           ))}
-          {/* Bottom border */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }} />
         </div>
       </div>
     </section>
