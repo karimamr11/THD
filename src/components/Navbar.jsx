@@ -85,8 +85,8 @@ export default function Navbar() {
                 >
                   {link.label}
                   <span 
-                    className="absolute bottom-[-8px] left-1/2 -translate-x-1/2 w-4 h-[2px] transition-all duration-300 group-hover:w-full"
-                    style={{ background: 'var(--color-brand-yellow)' }}
+                    className="absolute bottom-[-8px] left-1/2 -translate-x-1/2 w-5 h-[2px] transition-all duration-300 group-hover:w-full"
+                    style={{ background: 'linear-gradient(90deg, transparent 0%, var(--color-brand-yellow) 50%, transparent 100%)' }}
                   />
                 </a>
               </li>
@@ -148,8 +148,8 @@ export default function Navbar() {
                   >
                     {link.label}
                     <span 
-                      className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-8 h-[2px] transition-all duration-300 group-hover:w-full"
-                      style={{ background: 'var(--color-brand-yellow)' }}
+                      className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-10 h-[2px] transition-all duration-300 group-hover:w-full"
+                      style={{ background: 'linear-gradient(90deg, transparent 0%, var(--color-brand-yellow) 50%, transparent 100%)' }}
                     />
                   </a>
                 </li>
