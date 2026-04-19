@@ -20,12 +20,32 @@ export default function Services() {
     <section
       id="services"
       style={{
-        background: '#1C1C1A',
-        padding: '120px 0 140px',
         position: 'relative',
+        padding: 'clamp(60px, 10vw, 120px) 0 clamp(80px, 12vw, 140px)',
         overflow: 'hidden',
       }}
     >
+      {/* Background image — same as hero */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'url(/hero-bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          zIndex: 0,
+        }}
+      />
+      {/* Dark overlay for modern moody look */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(180deg, rgba(17,17,16,0.55) 0%, rgba(28,28,26,0.65) 50%, rgba(17,17,16,0.70) 100%)',
+          zIndex: 1,
+        }}
+      />
+
       {/* Decorative glow */}
       <div
         style={{
@@ -35,8 +55,9 @@ export default function Services() {
           width: '600px',
           height: '600px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(226,255,0,0.04) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(226,255,0,0.06) 0%, transparent 70%)',
           pointerEvents: 'none',
+          zIndex: 2,
         }}
       />
       <div
@@ -47,12 +68,13 @@ export default function Services() {
           width: '400px',
           height: '400px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(226,255,0,0.03) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(226,255,0,0.04) 0%, transparent 70%)',
           pointerEvents: 'none',
+          zIndex: 2,
         }}
       />
 
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw', position: 'relative' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5vw', position: 'relative', zIndex: 3 }}>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -114,7 +136,7 @@ export default function Services() {
               transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 border: '1px solid rgba(255,255,255,0.06)',
-                padding: '48px 40px',
+                padding: 'clamp(24px, 4vw, 48px) clamp(20px, 3vw, 40px)',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '16px',

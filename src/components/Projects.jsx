@@ -390,7 +390,7 @@ function ScrapbookOverlay({ project, onClose }) {
             position: 'absolute',
             bottom: 'clamp(30px, 6vh, 100px)',
             right: 'clamp(10px, 8vw, 15%)',
-            width: 'clamp(200px, 35vw, 320px)',
+            width: 'clamp(160px, 30vw, 320px)',
             background: 'var(--color-brand-yellow)',
             padding: 'clamp(16px, 3vw, 24px)',
             borderRadius: '2px',
@@ -571,7 +571,7 @@ export default function Projects() {
         id="projects"
         style={{
           background: '#111110',
-          padding: '120px 0 140px',
+          padding: 'clamp(60px, 10vw, 120px) 0 clamp(80px, 12vw, 140px)',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -602,7 +602,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            style={{ marginBottom: '80px' }}
+            style={{ marginBottom: 'clamp(40px, 8vw, 80px)' }}
           >
             <div
               style={{
@@ -667,14 +667,14 @@ export default function Projects() {
                     key={tab}
                     onClick={() => setFilter(tab)}
                     style={{
-                      padding: '10px 24px',
+                      padding: '10px clamp(14px, 3vw, 24px)',
                       borderRadius: '999px',
                       border: 'none',
                       background:
                         filter === tab ? 'var(--color-brand-yellow)' : 'transparent',
                       color: filter === tab ? '#111110' : '#A3A3A3',
                       fontFamily: 'var(--font-body)',
-                      fontSize: '14px',
+                      fontSize: 'clamp(12px, 1.5vw, 14px)',
                       fontWeight: 600,
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',

@@ -108,6 +108,9 @@ export default function Hero() {
   // const solidT = Math.min(Math.max((progress - 0.80) / 0.20, 0), 1)
   // const solidE = easeInOutCubic(solidT)
 
+  // Modern Glow — ramps up once the solid text is fully visible
+  const glowIntensity = Math.min(Math.max((progress - 0.35) / 0.30, 0), 1)
+
   return (
     <section
       ref={sectionRef}
@@ -463,7 +466,7 @@ export default function Hero() {
             </defs>
             {/* The background image that covers the building/clouds outside the letters */}
             <image href="/hero-bg.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" mask="url(#thd-stencil)" />
-            
+
             {/* PHASE 3 Solid fill text */}
             <g style={{
               transform: `scale(${thdScale})`,
@@ -502,6 +505,69 @@ export default function Hero() {
             </g>
           </svg>
         </div>
+
+        {/* ---- MODERN GLOW OVERLAY (HTML text-shadow, not SVG) ---- */}
+        {glowIntensity > 0 && (
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              zIndex: 10,
+              pointerEvents: 'none',
+              opacity: (1 - dropT) * thdOpacity,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <div
+              style={{
+                transform: `scale(${thdScale}) translateY(${(thdTextYPercentFinal - 50) * 1.8}%)`,
+                transformOrigin: 'center center',
+                textAlign: 'center',
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'clamp(7rem, 20vw, 22rem)',
+                  fontWeight: 900,
+                  letterSpacing: '-0.04em',
+                  lineHeight: 0.85,
+                  color: 'transparent',
+                  textShadow: `
+                    0 0 ${12 * glowIntensity}px rgba(255, 255, 255, ${0.3 * glowIntensity}),
+                    0 0 ${40 * glowIntensity}px rgba(255, 255, 255, ${0.18 * glowIntensity}),
+                    0 0 ${80 * glowIntensity}px rgba(255, 255, 255, ${0.08 * glowIntensity})
+                  `,
+                  WebkitTextStroke: '0px transparent',
+                }}
+              >
+                THD
+              </div>
+              <div
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'clamp(4rem, 10vw, 9rem)',
+                  fontWeight: 600,
+                  lineHeight: 1.1,
+                  marginTop: isMobile ? '-0.1em' : '0.05em',
+                  color: 'transparent',
+                  textShadow: `
+                    0 0 ${20 * glowIntensity}px rgba(226, 255, 0, ${0.7 * glowIntensity}),
+                    0 0 ${60 * glowIntensity}px rgba(226, 255, 0, ${0.45 * glowIntensity}),
+                    0 0 ${120 * glowIntensity}px rgba(226, 255, 0, ${0.25 * glowIntensity}),
+                    0 0 ${200 * glowIntensity}px rgba(226, 255, 0, ${0.12 * glowIntensity})
+                  `,
+                  WebkitTextStroke: '0px transparent',
+                }}
+              >
+                Studio
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* ---- FOREGROUND BASE CLOUD ALIGNED TO BUILDING ---- */}
         {/* Rendered ON TOP of the stencil mask (zIndex>10) so THD text physically sinks into the cloud! */}

@@ -72,7 +72,7 @@ const contacts = [
   },
   {
     title: 'Phone',
-    line1: '010 06224062',
+    line1: '+20 100 622 4062',
     line2: 'Mon-Fri, 9am - 6pm',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -360,29 +360,26 @@ export default function About() {
                   flexDirection: 'column',
                   alignItems: 'flex-start',
                   padding: isMobile ? '24px' : '40px 32px',
-                  background: 'linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005))',
-                  border: '1px solid rgba(255,255,255,0.04)',
+                  background: 'linear-gradient(145deg, rgba(226,255,0,0.02), rgba(226,255,0,0.005))',
+                  border: '1px solid rgba(226,255,0,0.15)',
                   borderRadius: '24px',
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                   cursor: 'pointer',
+                  boxShadow: '0 12px 30px rgba(226,255,0,0.03)',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(226,255,0,0.3)'
-                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(226,255,0,0.05), rgba(226,255,0,0.01))'
+                  e.currentTarget.style.borderColor = 'rgba(226,255,0,0.4)'
+                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(226,255,0,0.08), rgba(226,255,0,0.02))'
                   e.currentTarget.style.transform = 'translateY(-6px)'
-                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(226,255,0,0.06)'
-                  const iconwrap = e.currentTarget.querySelector('.contact-icon')
-                  if (iconwrap) iconwrap.style.color = 'var(--color-brand-yellow)'
+                  e.currentTarget.style.boxShadow = '0 16px 50px rgba(226,255,0,0.15)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.04)'
-                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005))'
+                  e.currentTarget.style.borderColor = 'rgba(226,255,0,0.15)'
+                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(226,255,0,0.02), rgba(226,255,0,0.005))'
                   e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.boxShadow = 'none'
-                  const iconwrap = e.currentTarget.querySelector('.contact-icon')
-                  if (iconwrap) iconwrap.style.color = '#FFFFFF'
+                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(226,255,0,0.03)'
                 }}
               >
                 <div
@@ -393,9 +390,9 @@ export default function About() {
                     justifyContent: 'center',
                     width: '48px',
                     height: '48px',
-                    background: 'rgba(255,255,255,0.05)',
+                    background: 'rgba(226,255,0,0.1)',
                     borderRadius: '12px',
-                    color: '#FFFFFF',
+                    color: 'var(--color-brand-yellow)',
                     marginBottom: '24px',
                     transition: 'color 0.4s ease',
                   }}

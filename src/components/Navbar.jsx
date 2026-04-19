@@ -97,28 +97,60 @@ export default function Navbar() {
           <button
             id="mobile-menu-toggle"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden flex flex-col items-center justify-center gap-[5px] p-2 bg-transparent border-none cursor-pointer"
+            className="md:hidden flex flex-col items-center justify-center p-2 bg-transparent border-none cursor-pointer"
             aria-label="Toggle menu"
+            style={{
+              width: '44px',
+              height: '44px',
+              position: 'relative',
+            }}
           >
             <span
-              className="block w-5 h-[1.5px] transition-all duration-300"
               style={{
+                display: 'block',
+                width: '22px',
+                height: '2px',
                 background: '#FFFFFF',
-                transform: mobileOpen ? 'rotate(45deg) translateY(6.5px)' : 'none',
+                borderRadius: '1px',
+                position: 'absolute',
+                left: '50%',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                transformOrigin: 'center center',
+                willChange: 'transform',
+                transform: mobileOpen
+                  ? 'translate(-50%, 0) rotate(45deg)'
+                  : 'translate(-50%, -7px) rotate(0deg)',
               }}
             />
             <span
-              className="block w-5 h-[1.5px] transition-all duration-300"
               style={{
+                display: 'block',
+                width: '22px',
+                height: '2px',
                 background: '#FFFFFF',
+                borderRadius: '1px',
+                position: 'absolute',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 opacity: mobileOpen ? 0 : 1,
               }}
             />
             <span
-              className="block w-5 h-[1.5px] transition-all duration-300"
               style={{
+                display: 'block',
+                width: '22px',
+                height: '2px',
                 background: '#FFFFFF',
-                transform: mobileOpen ? 'rotate(-45deg) translateY(-6.5px)' : 'none',
+                borderRadius: '1px',
+                position: 'absolute',
+                left: '50%',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                transformOrigin: 'center center',
+                willChange: 'transform',
+                transform: mobileOpen
+                  ? 'translate(-50%, 0) rotate(-45deg)'
+                  : 'translate(-50%, 7px) rotate(0deg)',
               }}
             />
           </button>
