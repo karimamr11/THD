@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer style={{
-      background: '#1A1A18',
+      background: '#000000',
       padding: '36px 0 32px',
       borderTop: '1px solid rgba(255,255,255,0.06)',
       position: 'relative',

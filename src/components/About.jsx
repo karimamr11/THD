@@ -112,7 +112,7 @@ export default function About() {
     <section
       id="about"
       style={{
-        background: '#111110',
+        background: '#000000',
         padding: isMobile ? '80px 0 100px' : '120px 0 140px',
         position: 'relative',
         overflow: 'hidden',
@@ -216,14 +216,9 @@ export default function About() {
             }}
           >
             <div style={{
-              padding: '24px',
-              background: 'rgba(255,255,255,0.01)',
-              borderRadius: '28px',
-              border: '1px solid rgba(255,255,255,0.05)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
             }}>
               <img
                 src="/THD Studio LOGO-Light.jpg"
@@ -251,8 +246,6 @@ export default function About() {
             gap: isMobile ? '40px' : '24px',
             marginBottom: isMobile ? '60px' : '100px',
             padding: isMobile ? '40px 24px' : '48px 40px',
-            background: 'rgba(255,255,255,0.02)',
-            border: '1px solid rgba(255,255,255,0.06)',
             borderRadius: '20px',
           }}
         >
@@ -369,10 +362,10 @@ export default function About() {
                   cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(226,255,0,0.3)'
-                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(226,255,0,0.05), rgba(226,255,0,0.01))'
+                  e.currentTarget.style.borderColor = 'rgba(226,255,0,0.5)'
+                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(226,255,0,0.1), rgba(226,255,0,0.02))'
                   e.currentTarget.style.transform = 'translateY(-6px)'
-                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(226,255,0,0.06)'
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(226,255,0,0.15)'
                   const iconwrap = e.currentTarget.querySelector('.contact-icon')
                   if (iconwrap) iconwrap.style.color = 'var(--color-brand-yellow)'
                 }}

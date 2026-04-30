@@ -41,30 +41,33 @@ export default function Navbar() {
       <nav
         className="fixed top-0 left-0 w-full z-[100] transition-all duration-500"
         style={{
-          background: 'rgba(26, 26, 24, 0.95)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
+          background: 'rgba(0, 0, 0, 0.25)',
+          backdropFilter: 'blur(60px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(60px) saturate(180%)',
           borderBottom: scrolled ? '0.5px solid rgba(255,255,255,0.1)' : 'none',
           transform: hidden && !mobileOpen ? 'translateY(-100%)' : 'translateY(0)',
         }}
       >
         <div
-          className="w-full flex items-center justify-between h-[80px]"
+          className="w-full flex items-center justify-between h-[100px]"
           style={{ padding: '0 6vw' }}
         >
           {/* Logo */}
           <a
             href="#hero"
-            className="no-underline text-[28px] font-bold tracking-tight pt-[2px]"
-            style={{
-              fontFamily: 'var(--font-display)',
-              color: '#FFFFFF'
-            }}
+            className="flex items-center justify-start no-underline"
           >
-            THD <span style={{
-              color: 'var(--color-brand-yellow)',
-              marginLeft: '4px'
-            }}>Studio</span>
+            <img
+              src="/thd-logo-hg.png"
+              alt="THD Studio"
+              style={{
+                height: '160px',
+                width: 'auto',
+                display: 'block',
+                objectFit: 'contain',
+              }}
+              draggable={false}
+            />
           </a>
 
           <ul

@@ -13,6 +13,12 @@ const services = [
     description: 'Architectural design that pushes boundaries. Structures that stand as statements of innovation and precision.',
     features: ['Conceptual Design', 'Technical Drawings', 'Building Permits', 'Site Supervision'],
   },
+  {
+    number: '03',
+    title: 'Execution',
+    description: 'Flawless on-site execution and project management. We turn designs into reality with meticulous attention to detail.',
+    features: ['Project Management', 'Quality Control', 'Turnkey Solutions', 'Contracting'],
+  },
 ]
 
 export default function Services() {
@@ -20,7 +26,7 @@ export default function Services() {
     <section
       id="services"
       style={{
-        background: '#1C1C1A',
+        background: '#000000',
         padding: '120px 0 140px',
         position: 'relative',
         overflow: 'hidden',
@@ -102,7 +108,7 @@ export default function Services() {
         {/* Services List */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
           gap: '32px',
         }}>
           {services.map((service, index) => (
@@ -114,7 +120,7 @@ export default function Services() {
               transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 border: '1px solid rgba(255,255,255,0.06)',
-                padding: '48px 40px',
+                padding: '40px 32px',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '16px',
@@ -125,9 +131,9 @@ export default function Services() {
               }}
               className="services-row"
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
-                e.currentTarget.style.borderColor = 'rgba(226,255,0,0.25)'
-                e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.2)'
+                e.currentTarget.style.borderColor = 'rgba(226,255,0,0.5)'
+                e.currentTarget.style.background = 'linear-gradient(145deg, rgba(226,255,0,0.1), rgba(226,255,0,0.02))'
+                e.currentTarget.style.boxShadow = '0 12px 40px rgba(226,255,0,0.15)'
                 e.currentTarget.style.transform = 'translateY(-6px)'
                 const num = e.currentTarget.querySelector('.service-num')
                 if (num) num.style.color = 'var(--color-brand-yellow)'
