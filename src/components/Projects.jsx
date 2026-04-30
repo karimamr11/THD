@@ -172,7 +172,7 @@ function ProjectCardOverlay({ project, onClose }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 'clamp(20px, 4vw, 40px)',
+        padding: 'clamp(12px, 3vw, 40px)',
       }}
     >
       {/* Close button */}
@@ -217,7 +217,7 @@ function ProjectCardOverlay({ project, onClose }) {
           height: '90vh',
           maxHeight: '900px',
           background: '#1A1A18',
-          borderRadius: '16px',
+          borderRadius: 'clamp(8px, 2vw, 16px)',
           overflow: 'hidden',
           display: 'flex',
           flexDirection: 'column',
@@ -260,8 +260,8 @@ function ProjectCardOverlay({ project, onClose }) {
               onClick={(e) => { e.stopPropagation(); prev(); }}
               style={{
                 pointerEvents: 'auto',
-                width: '48px',
-                height: '48px',
+                width: 'clamp(36px, 8vw, 48px)',
+                height: 'clamp(36px, 8vw, 48px)',
                 borderRadius: '50%',
                 border: 'none',
                 background: 'rgba(0,0,0,0.5)',
@@ -283,8 +283,8 @@ function ProjectCardOverlay({ project, onClose }) {
               onClick={(e) => { e.stopPropagation(); next(); }}
               style={{
                 pointerEvents: 'auto',
-                width: '48px',
-                height: '48px',
+                width: 'clamp(36px, 8vw, 48px)',
+                height: 'clamp(36px, 8vw, 48px)',
                 borderRadius: '50%',
                 border: 'none',
                 background: 'rgba(0,0,0,0.5)',
@@ -307,10 +307,10 @@ function ProjectCardOverlay({ project, onClose }) {
 
         {/* Info panel */}
         <div style={{
-          padding: 'clamp(24px, 4vw, 40px)',
+          padding: 'clamp(16px, 4vw, 40px)',
           display: 'flex',
           flexDirection: 'column',
-          gap: '16px',
+          gap: 'clamp(10px, 2vw, 16px)',
           borderTop: '1px solid rgba(255,255,255,0.05)',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

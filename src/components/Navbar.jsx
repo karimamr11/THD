@@ -49,8 +49,8 @@ export default function Navbar() {
         }}
       >
         <div
-          className="w-full flex items-center justify-between h-[100px]"
-          style={{ padding: '0 6vw' }}
+          className="w-full flex items-center justify-between"
+          style={{ padding: '0 clamp(16px, 6vw, 48px)', height: 'clamp(70px, 12vw, 100px)' }}
         >
           {/* Logo */}
           <a
@@ -61,7 +61,7 @@ export default function Navbar() {
               src="/thd-logo-hg.png"
               alt="THD Studio"
               style={{
-                height: '160px',
+                height: 'clamp(80px, 20vw, 160px)',
                 width: 'auto',
                 display: 'block',
                 objectFit: 'contain',

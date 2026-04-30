@@ -25,7 +25,7 @@ export default function Hero() {
         display: 'flex',
         alignItems: 'flex-end',
         justifyContent: 'flex-start',
-        padding: '0 5vw 80px 5vw'
+        padding: '0 5vw clamp(40px, 10vw, 80px) 5vw'
       }}
     >
       {/* Background Image & Overlay */}
@@ -53,7 +53,7 @@ export default function Hero() {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%)',
+          background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 100%)',
         }} />
       </div>
 
@@ -78,7 +78,7 @@ export default function Hero() {
             marginBottom: '16px',
           }}
         >
-          <span style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+          <span style={{ display: 'inline-block' }}>
             <span style={{ color: 'rgba(255, 255, 255, 0.8)' }}>Designing </span>
             <span style={{ color: 'rgba(255, 255, 255, 0.9)' }}>the </span>
           </span>
@@ -98,7 +98,7 @@ export default function Hero() {
         <p
           style={{
             fontFamily: 'var(--font-body)',
-            fontSize: 'clamp(14px, 1.4vw, 17px)',
+            fontSize: 'clamp(13px, 3vw, 17px)',
             lineHeight: 1.65,
             maxWidth: '480px',
             marginBottom: '24px',
