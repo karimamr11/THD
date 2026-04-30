@@ -29,16 +29,17 @@ export default function Footer() {
         <div style={{
           display: 'flex',
           flexDirection: 'row',
-          flexWrap: 'wrap',
+          flexWrap: 'nowrap',
           justifyContent: 'center',
           alignItems: 'center',
-          gap: '32px',
+          gap: '12px',
           fontFamily: 'var(--font-body)',
-          fontSize: '15px',
+          fontSize: 'clamp(11px, 2.8vw, 15px)',
           color: '#FFFFFF',
           fontWeight: 300,
           letterSpacing: '0.03em',
-          textAlign: 'center'
+          textAlign: 'center',
+          whiteSpace: 'nowrap',
         }}>
           <span>
             Powered by{' '}
@@ -49,8 +50,9 @@ export default function Footer() {
             width: '1px', 
             height: '14px', 
             background: 'rgba(255,255,255,0.12)',
-            display: 'inline-block'
-          }} className="hidden sm:block" />
+            display: 'inline-block',
+            flexShrink: 0,
+          }} />
 
           <span style={{ color: '#6B6B60' }}>All rights reserved © {new Date().getFullYear()}</span>
         </div>

@@ -130,7 +130,7 @@ const projects = [
 ]
 
 /* ───────────────────────────────────────────
-   Seeded pseudo-random for deterministic scatter.
+   Project Card Overlay Component
    ─────────────────────────────────────────── */
 function ProjectCardOverlay({ project, onClose }) {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -175,6 +175,7 @@ function ProjectCardOverlay({ project, onClose }) {
         padding: 'clamp(20px, 4vw, 40px)',
       }}
     >
+      {/* Close button */}
       <button
         onClick={onClose}
         style={{
@@ -207,6 +208,7 @@ function ProjectCardOverlay({ project, onClose }) {
         ✕
       </button>
 
+      {/* Card */}
       <div
         onClick={(e) => e.stopPropagation()}
         style={{
@@ -222,6 +224,7 @@ function ProjectCardOverlay({ project, onClose }) {
           boxShadow: '0 25px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.05)',
         }}
       >
+        {/* Image area */}
         <div style={{ flex: 1, position: 'relative', overflow: 'hidden', background: '#000' }}>
           <AnimatePresence mode="wait">
             <motion.img
@@ -231,16 +234,17 @@ function ProjectCardOverlay({ project, onClose }) {
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
               style={{
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                display: 'block'
+                display: 'block',
               }}
             />
           </AnimatePresence>
 
+          {/* Navigation arrows */}
           <div style={{
             position: 'absolute',
             top: '50%',
@@ -301,6 +305,7 @@ function ProjectCardOverlay({ project, onClose }) {
           </div>
         </div>
 
+        {/* Info panel */}
         <div style={{
           padding: 'clamp(24px, 4vw, 40px)',
           display: 'flex',
@@ -375,8 +380,8 @@ export default function Projects() {
       <section
         id="projects"
         style={{
-          background: '#000000',
-          padding: '120px 0 140px',
+          background: '#111110',
+          padding: 'clamp(60px, 10vw, 120px) 0 clamp(80px, 12vw, 140px)',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -396,7 +401,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            style={{ marginBottom: '80px' }}
+            style={{ marginBottom: 'clamp(40px, 8vw, 80px)' }}
           >
             <div
               style={{
@@ -461,14 +466,14 @@ export default function Projects() {
                     key={tab}
                     onClick={() => setFilter(tab)}
                     style={{
-                      padding: '10px 24px',
+                      padding: '10px clamp(14px, 3vw, 24px)',
                       borderRadius: '999px',
                       border: 'none',
                       background:
                         filter === tab ? 'var(--color-brand-yellow)' : 'transparent',
                       color: filter === tab ? '#111110' : '#A3A3A3',
                       fontFamily: 'var(--font-body)',
-                      fontSize: '14px',
+                      fontSize: 'clamp(12px, 1.5vw, 14px)',
                       fontWeight: 600,
                       cursor: 'pointer',
                       transition: 'all 0.3s ease',
@@ -494,7 +499,7 @@ export default function Projects() {
                 id: project.title,
                 img: project.images[0].url,
                 url: "#",
-                height: 350 + (index % 3) * 100, // Varied heights for masonry effect
+                height: 350 + (index % 3) * 100,
                 onClick: () => setOpenProject(project)
               }))}
               ease="power3.out"
@@ -510,7 +515,7 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Scrapbook Overlay */}
+      {/* Project Card Overlay */}
       <AnimatePresence>
         {openProject && (
           <ProjectCardOverlay
@@ -522,3 +527,4 @@ export default function Projects() {
     </>
   )
 }
+
