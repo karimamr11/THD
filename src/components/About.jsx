@@ -353,27 +353,26 @@ export default function About() {
                   flexDirection: 'column',
                   alignItems: 'flex-start',
                   padding: isMobile ? '24px' : '40px 32px',
-                  background: 'linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005))',
-                  border: '1px solid rgba(255,255,255,0.04)',
+                  background: '#080808',
+                  border: '1px solid transparent',
                   borderRadius: '24px',
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                   cursor: 'pointer',
+                  boxShadow: '0 0 16px rgba(226, 255, 0, 0.45)',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(226,255,0,0.5)'
-                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(226,255,0,0.1), rgba(226,255,0,0.02))'
                   e.currentTarget.style.transform = 'translateY(-6px)'
-                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(226,255,0,0.15)'
+                  e.currentTarget.style.boxShadow = '0 0 24px rgba(226, 255, 0, 0.7)'
                   const iconwrap = e.currentTarget.querySelector('.contact-icon')
                   if (iconwrap) iconwrap.style.color = 'var(--color-brand-yellow)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.04)'
-                  e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005))'
+                  e.currentTarget.style.borderColor = 'transparent'
                   e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.boxShadow = 'none'
+                  e.currentTarget.style.boxShadow = '0 0 16px rgba(226, 255, 0, 0.45)'
                   const iconwrap = e.currentTarget.querySelector('.contact-icon')
                   if (iconwrap) iconwrap.style.color = '#FFFFFF'
                 }}

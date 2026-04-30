@@ -116,48 +116,6 @@ export default function Hero() {
           </span>
         </p>
 
-        <a
-          href="#projects"
-          id="hero-cta"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '6px',
-            padding: '10px 22px',
-            borderRadius: '999px',
-            background: '#1A1A18',
-            color: '#FFFFFF',
-            fontFamily: 'var(--font-body)',
-            fontSize: '13px',
-            fontWeight: 500,
-            textDecoration: 'none',
-            letterSpacing: '0.02em',
-            boxShadow: '0 0 16px rgba(226, 255, 0, 0.45)',
-            transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-1px)'
-            e.currentTarget.style.boxShadow = '0 0 24px rgba(226, 255, 0, 0.7)'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)'
-            e.currentTarget.style.boxShadow = '0 0 16px rgba(226, 255, 0, 0.45)'
-          }}
-        >
-          Explore Our Work{' '}
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="var(--color-brand-yellow)"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </a>
       </div>
     </section>
   )

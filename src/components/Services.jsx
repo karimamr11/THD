@@ -119,7 +119,7 @@ export default function Services() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                border: '1px solid rgba(255,255,255,0.06)',
+                border: '1px solid transparent',
                 padding: '40px 32px',
                 display: 'flex',
                 flexDirection: 'column',
@@ -127,21 +127,20 @@ export default function Services() {
                 cursor: 'pointer',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                 borderRadius: '24px',
-                background: 'rgba(255,255,255,0.015)',
+                background: '#080808',
+                boxShadow: '0 0 16px rgba(226, 255, 0, 0.45)',
               }}
               className="services-row"
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = 'rgba(226,255,0,0.5)'
-                e.currentTarget.style.background = 'linear-gradient(145deg, rgba(226,255,0,0.1), rgba(226,255,0,0.02))'
-                e.currentTarget.style.boxShadow = '0 12px 40px rgba(226,255,0,0.15)'
+                e.currentTarget.style.boxShadow = '0 0 24px rgba(226, 255, 0, 0.7)'
                 e.currentTarget.style.transform = 'translateY(-6px)'
                 const num = e.currentTarget.querySelector('.service-num')
                 if (num) num.style.color = 'var(--color-brand-yellow)'
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.015)'
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'
-                e.currentTarget.style.boxShadow = 'none'
+                e.currentTarget.style.borderColor = 'transparent'
+                e.currentTarget.style.boxShadow = '0 0 16px rgba(226, 255, 0, 0.45)'
                 e.currentTarget.style.transform = 'translateY(0)'
                 const num = e.currentTarget.querySelector('.service-num')
                 if (num) num.style.color = '#3A3A35'

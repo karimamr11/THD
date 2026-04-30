@@ -449,16 +449,12 @@ export default function Projects() {
                 spaces & stories.
               </h2>
 
-              {/* Toggle Buttons */}
+              {/* Filter Buttons */}
               <div
                 style={{
                   display: 'flex',
-                  gap: '0',
-                  background: '#1A1A18',
-                  padding: '5px',
-                  borderRadius: '999px',
-                  width: 'fit-content',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  gap: 'clamp(8px, 2vw, 16px)',
+                  flexWrap: 'wrap',
                 }}
               >
                 {['All', 'Architecture', 'Interior', 'Execution'].map((tab) => (
@@ -466,23 +462,38 @@ export default function Projects() {
                     key={tab}
                     onClick={() => setFilter(tab)}
                     style={{
-                      padding: '10px clamp(14px, 3vw, 24px)',
+                      padding: 'clamp(10px, 1.5vw, 14px) clamp(20px, 3vw, 32px)',
                       borderRadius: '999px',
-                      border: 'none',
-                      background:
-                        filter === tab ? 'var(--color-brand-yellow)' : 'transparent',
-                      color: filter === tab ? '#111110' : '#A3A3A3',
+                      border: filter === tab
+                        ? '1px solid rgba(226,255,0,0.5)'
+                        : '1px solid transparent',
+                      background: '#080808',
+                      color: filter === tab ? 'var(--color-brand-yellow)' : '#FFFFFF',
                       fontFamily: 'var(--font-body)',
                       fontSize: 'clamp(12px, 1.5vw, 14px)',
                       fontWeight: 600,
                       cursor: 'pointer',
-                      transition: 'all 0.3s ease',
+                      transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                      letterSpacing: '0.02em',
+                      boxShadow: filter === tab 
+                        ? '0 0 24px rgba(226, 255, 0, 0.7)' 
+                        : '0 0 16px rgba(226, 255, 0, 0.45)',
                     }}
                     onMouseEnter={(e) => {
-                      if (filter !== tab) e.currentTarget.style.color = '#FFFFFF'
+                      if (filter !== tab) {
+                        e.currentTarget.style.borderColor = 'rgba(226,255,0,0.5)'
+                        e.currentTarget.style.boxShadow = '0 0 24px rgba(226, 255, 0, 0.7)'
+                        e.currentTarget.style.transform = 'translateY(-2px)'
+                        e.currentTarget.style.color = 'var(--color-brand-yellow)'
+                      }
                     }}
                     onMouseLeave={(e) => {
-                      if (filter !== tab) e.currentTarget.style.color = '#A3A3A3'
+                      if (filter !== tab) {
+                        e.currentTarget.style.borderColor = 'transparent'
+                        e.currentTarget.style.boxShadow = '0 0 16px rgba(226, 255, 0, 0.45)'
+                        e.currentTarget.style.transform = 'translateY(0)'
+                        e.currentTarget.style.color = '#FFFFFF'
+                      }
                     }}
                   >
                     {tab}

@@ -41,10 +41,10 @@ export default function Navbar() {
       <nav
         className="fixed top-0 left-0 w-full z-[100] transition-all duration-500"
         style={{
-          background: 'transparent',
-          backdropFilter: 'none',
-          WebkitBackdropFilter: 'none',
-          borderBottom: 'none',
+          background: 'rgba(0, 0, 0, 0.25)',
+          backdropFilter: 'blur(60px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(60px) saturate(180%)',
+          borderBottom: scrolled ? '0.5px solid rgba(255,255,255,0.1)' : 'none',
           transform: hidden && !mobileOpen ? 'translateY(-100%)' : 'translateY(0)',
         }}
       >
