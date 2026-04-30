@@ -38,13 +38,17 @@ export default function Hero() {
         zIndex: 1,
       }}>
         <img 
-          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80" 
+          src={isMobile 
+            ? "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=75" 
+            : "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80"
+          }
           alt="Luxury Architecture"
           style={{
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            display: 'block'
+            objectPosition: isMobile ? 'center center' : 'center',
+            display: 'block',
           }}
         />
         <div style={{
